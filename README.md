@@ -5,7 +5,7 @@ Advanced computer vision system for detecting and classifying maize leaf disease
 
 [![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-v2.0+-red.svg)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Deep learning-powered maize leaf disease detection using the Swin Transformer architecture. This model achieves high accuracy in classifying four distinct leaf conditions: Healthy, Common Rust, Blight, and Gray Leaf Spot.
 
