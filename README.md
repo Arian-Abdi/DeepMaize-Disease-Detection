@@ -1,6 +1,3 @@
-# DeepMaize-Disease-Detection
-Advanced computer vision system for detecting and classifying maize leaf diseases using state-of-the-art deep learning.
-
 # DeepMaize Disease Detection 
 
 [![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://www.python.org/)
