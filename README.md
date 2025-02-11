@@ -3,17 +3,19 @@
 [![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-v2.0+-red.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/Arian-Abdi/DeepMaize-Disease-Detection/actions)
 
 Deep learning-powered maize leaf disease detection using the Swin Transformer architecture. This model achieves high accuracy in classifying four distinct leaf conditions: Healthy, Common Rust, Blight, and Gray Leaf Spot.
 
-##  Key Features
+## Key Features 
 
 - **High Accuracy**: 97%+ accuracy across all disease classes
 - **State-of-the-Art Architecture**: Utilizes Swin Transformer for superior feature extraction
 - **Production Ready**: Complete with data preprocessing, training, and inference pipelines
+- **Test Coverage**: Comprehensive test suite with all tests passing
 - **Easy to Use**: Simple API for both training and prediction
 
-##  Performance
+## Model Performance 
 
 | Disease Class    | Accuracy |
 |-----------------|----------|
@@ -22,15 +24,7 @@ Deep learning-powered maize leaf disease detection using the Swin Transformer ar
 | Blight         | 96.46%   |
 | Gray Leaf Spot | 93.12%   |
 
-##  Quick Start
-
-### Prerequisites
-
-- Python 3.8+
-- PyTorch 2.0+
-- CUDA-capable GPU (recommended)
-
-### Installation
+## Installation 
 
 ```bash
 # Clone the repository
@@ -41,53 +35,84 @@ cd DeepMaize-Disease-Detection
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
+# Install the package
+pip install -e .
 ```
+
+## Usage 
 
 ### Training
 
-```bash
-python main.py --mode train \
-               --data_dir data \
-               --train_csv train.csv \
-               --num_epochs 20
+```python
+from deepmaize.model import SwinMaizeClassifier
+from deepmaize.train import train_model
+from deepmaize.dataset import MaizeLeafDataset, get_transforms
+from torch.utils.data import DataLoader
+
+# Initialize model
+model = SwinMaizeClassifier()
+
+# Create datasets
+train_dataset = MaizeLeafDataset(
+    csv_file='train.csv',
+    img_dir='data/train',
+    transform=get_transforms(train=True)
+)
+
+# Create data loaders
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+
+# Train model
+train_model(model, train_loader, val_loader, num_epochs=20)
 ```
 
 ### Prediction
 
-```bash
-python main.py --mode predict \
-               --model_path models/best_model.pth \
-               --image_path path/to/image.jpg
+```python
+from deepmaize.predict import predict_image
+
+# Load image and predict
+result = predict_image(model, 'path/to/image.jpg')
+print(f"Predicted Class: {result['class']}")
+print(f"Confidence: {result['confidence']:.2f}")
 ```
 
-##  Project Structure
+## Project Structure 
 
 ```
-deepmaize/
-├── src/
+DeepMaize/
+├── deepmaize/
+│   ├── __init__.py
 │   ├── model.py          # Model architecture
 │   ├── dataset.py        # Data loading and preprocessing
 │   ├── train.py          # Training functions
 │   ├── predict.py        # Inference pipeline
 │   └── utils.py          # Helper functions
-├── main.py              # Main entry point
-└── requirements.txt     # Dependencies
+├── tests/                # Test suite
+│   ├── __init__.py
+│   ├── test_model.py
+│   ├── test_dataset.py
+│   └── test_predict.py
+├── setup.py             # Package configuration
+└── README.md
 ```
 
-##  Configuration
+## Testing 
 
-Key parameters that can be configured via command line arguments:
+All tests are passing successfully. To run the tests:
 
 ```bash
---batch_size      # Training batch size (default: 16)
---learning_rate   # Learning rate (default: 1e-4)
---num_epochs      # Number of training epochs (default: 20)
---device          # Device to use (default: 'cuda' if available)
+# Run all tests
+pytest
+
+# Run with verbose output
+pytest -v
+
+# Run specific test file
+pytest tests/test_model.py
 ```
 
-##  Model Architecture
+## Model Architecture 🏗
 
 - Base Model: Swin Transformer (swin_base_patch4_window7_224)
 - Input Resolution: 224x224 pixels
@@ -98,15 +123,7 @@ Key parameters that can be configured via command line arguments:
   - Dropout(0.3)
   - Linear(512 → 4)
 
-##  Dataset
-
-The model is trained on a dataset of maize leaf images with the following distribution:
-- Common Rust: 1,073 images (32.06%)
-- Healthy: 917 images (27.40%)
-- Blight: 908 images (27.13%)
-- Gray Leaf Spot: 449 images (13.41%)
-
-##  Contributing
+## Contributing 
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -116,18 +133,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-##  License
+## License 
 
-This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-##  Contact
-
-Arian Abdi - [Your Email]
-
-Project Link: [https://github.com/Arian-Abdi/DeepMaize-Disease-Detection](https://github.com/Arian-Abdi/DeepMaize-Disease-Detection)
-
-## 🙏 Acknowledgments
+## Acknowledgments 
 
 - The Swin Transformer team for their groundbreaking architecture
 - PyTorch team for their excellent deep learning framework
 - timm library for providing pre-trained models
+
+## Contact 📧
+
+Arian Abdi - arian11abdi@gmail.com
+
+Project Link: [https://github.com/Arian-Abdi/DeepMaize-Disease-Detection](https://github.com/Arian-Abdi/DeepMaize-Disease-Detection)
