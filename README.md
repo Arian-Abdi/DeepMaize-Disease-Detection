@@ -145,6 +145,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Contact 📧
 
-Arian Abdi - arian11abdi@gmail.com
+Arian Abdi - arian.abdipour9@gmail.com
 
 Project Link: [https://github.com/Arian-Abdi/DeepMaize-Disease-Detection](https://github.com/Arian-Abdi/DeepMaize-Disease-Detection)
