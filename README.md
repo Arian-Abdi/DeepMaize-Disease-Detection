@@ -112,7 +112,7 @@ pytest -v
 pytest tests/test_model.py
 ```
 
-## Model Architecture 🏗
+## Model Architecture 
 
 - Base Model: Swin Transformer (swin_base_patch4_window7_224)
 - Input Resolution: 224x224 pixels
@@ -143,7 +143,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 - PyTorch team for their excellent deep learning framework
 - timm library for providing pre-trained models
 
-## Contact 📧
+## Contact 
 
 Arian Abdi - arian.abdipour9@gmail.com
 
