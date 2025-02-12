@@ -77,21 +77,6 @@ print(f"Predicted Class: {result['class']}")
 print(f"Confidence: {result['confidence']:.2f}")
 ```
 
-## Testing 
-
-All tests are passing successfully. To run the tests:
-
-```bash
-# Run all tests
-pytest
-
-# Run with verbose output
-pytest -v
-
-# Run specific test file
-pytest tests/test_model.py
-```
-
 ## Model Architecture 
 
 - Base Model: Swin Transformer (swin_base_patch4_window7_224)
