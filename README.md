@@ -77,26 +77,6 @@ print(f"Predicted Class: {result['class']}")
 print(f"Confidence: {result['confidence']:.2f}")
 ```
 
-## Project Structure 
-
-```
-DeepMaize/
-├── deepmaize/
-│   ├── __init__.py
-│   ├── model.py          # Model architecture
-│   ├── dataset.py        # Data loading and preprocessing
-│   ├── train.py          # Training functions
-│   ├── predict.py        # Inference pipeline
-│   └── utils.py          # Helper functions
-├── tests/                # Test suite
-│   ├── __init__.py
-│   ├── test_model.py
-│   ├── test_dataset.py
-│   └── test_predict.py
-├── setup.py             # Package configuration
-└── README.md
-```
-
 ## Testing 
 
 All tests are passing successfully. To run the tests:
