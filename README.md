@@ -15,14 +15,14 @@ Deep learning-powered maize leaf disease detection using the Swin Transformer ar
 - **Test Coverage**: Comprehensive test suite with all tests passing
 - **Easy to Use**: Simple API for both training and prediction
 
-## Model Performance 
+## Model Performance ( F1 Score)
 
 | Disease Class    | Accuracy |
 |-----------------|----------|
 | Healthy         | 100.00%  |
-| Common Rust     | 99.89%   |
-| Blight         | 96.46%   |
-| Gray Leaf Spot | 93.12%   |
+| Common Rust     | 99.31%   |
+| Blight         | 95.65%   |
+| Gray Leaf Spot | 90.91%   |
 
 ## Installation 
 
